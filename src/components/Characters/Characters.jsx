@@ -4,8 +4,8 @@ import { apiCallContext } from "../../Context/Context";
 
 export const Characters = () => {
 
-    const characters= useContext(apiCallContext);
-    console.log(characters)
+    const {characters}= useContext(apiCallContext);
+    console.log("soy characters",characters)
 
 
   return (

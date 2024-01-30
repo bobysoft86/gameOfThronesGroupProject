@@ -3,31 +3,38 @@ import axios from "axios"
 
 export const apiCallContext = createContext();
  
-const baseUrl="http://localhost:3000/"
+const baseUrl="http://localhost:3001"
 
-export const apiProvider = ({children}) => {
+export const ApiProvider = ({children}) => {
 
 const[characters, setCharacters]= useState([])
+const[houses, setHouses]= useState([])
+
 
 
 
 useEffect(() => {
     const getCharacters = async () => {
-      const charactersApi = await axios.get(`${baseUrl}/characters`);
-        setCharacters(charactersApi.data);
-        console.log("soy api",characters.data.results)
+      const charactersApi = await fetch(`${baseUrl}/characters`);
+      const characterJson = await charactersApi.json();
+      setCharacters(characterJson);
+      console.log(characterJson)
     };
     getCharacters();
-
+  }, []);
+  useEffect(() => {
+    const getHouses = async () => {
+      const HousesApi = await fetch(`${baseUrl}/houses`);
+      const houseJson = await HousesApi.json();
+      setHouses(houseJson);
+      console.log(houseJson)
+    };
+    getHouses();
   }, []);
 
 
-
-
-
-
   return (
-<apiCall.Provider value={characters}>
+<apiCallContext.Provider value={{characters,houses}}>
       {children}
-    </apiCall.Provider>  )
+    </apiCallContext.Provider>  )
 }
