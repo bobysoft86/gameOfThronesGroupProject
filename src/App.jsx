@@ -1,6 +1,6 @@
 import './App.css'
 import {Main} from './components/Main/Main'
-import {BrowserRoute, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Characters } from './components/Characters/Characters'
 import {Character} from './components/Character/Character'
 import { Houses } from './components/Houses/Houses'
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-    <BrowserRoute>
+    <BrowserRouter>
     <Routes>
 
     <Route path="/" element={<Main/>}/>
@@ -25,7 +25,7 @@ function App() {
 
     </Routes>
 
-    </BrowserRoute>
+    </BrowserRouter>
     </>
   )
 }
