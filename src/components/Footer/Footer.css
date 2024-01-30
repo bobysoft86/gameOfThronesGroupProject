@@ -1,0 +1,13 @@
+.indice {
+    display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.botones {
+  color: white;
+  display: flex;
+  text-decoration: none;
+  font-size: 20px;
+}

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from 'react-i18next';
+import "../Footer/Footer.css"
+
+
 export const Footer = () => {
     const { t, i18n } = useTranslation();
   const lngs ={
@@ -9,22 +12,11 @@ export const Footer = () => {
   
     return (
 <>
-
-        <div className="doyasco">
-
-                {/* <button type="submit" onClick={()=> i18.changeLanguage("es")} disabled={i18n.resolvedLanguage === lng}>español</button> */}
-                <button onClick={() => i18n.changeLanguage("es")}>ES</button>
-                <button onClick={() => i18n.changeLanguage("en")}>EN</button>
-
-
-        </div>
-<div>
-<Link to={"/characters"} >{t('characters')}</Link>
-<Link to={"/houses"} >{t('houses')}</Link>
-<Link to={"/chronology"} >{t('chronology')}</Link>
+<div className="indice">
+<Link to={"/characters"} className="botones">{t('characters')}</Link>
+<Link to={"/houses"} className="botones">{t('houses')}</Link>
+<Link to={"/chronology"} className="botones">{t('chronology')}</Link>
 </div>
-
-
 </>  )
 }
 

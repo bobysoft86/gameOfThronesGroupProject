@@ -1,0 +1,20 @@
+button {
+    background-color: transparent;
+    color: white;
+    margin-left: 15%;
+}
+
+.main_container{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.idiomas{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end
+}
+
+.flags{
+    width: 8%;
+}
