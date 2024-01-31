@@ -3,11 +3,9 @@ import { apiCallContext } from "../../Context/Context";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import Nav from "../Nav/Nav";
-
-
-
 import "./Characters.css";
 import Footer from "../Footer/Footer";
+
 
 
 export const Characters = () => {
@@ -23,14 +21,19 @@ export const Characters = () => {
     <div className="soy_todo">
       
             <div>
-            buscador
+            <form>
+                <label>
+                  Name:
+                  <input type="text" name="name" />
+                </label>
+              </form>
             <Nav></Nav>
             </div>
 
         <div className="gallery">
     
       {characters.map((character, index) => (
-          <div className="Character" onClick={() => console.log(character.id)}>
+          <div className="card" onClick={() => console.log(character.id)}>
           <Link to={`/characters/${character.id}`} > <img
             className="characterImage"
             key={index}
@@ -38,7 +41,7 @@ export const Characters = () => {
             alt="sdf"
             /></Link>
 
-          {/* <h1>{character.name}</h1> */}
+          <h1 className="chName">{character.name}</h1> 
         </div>
       ))}
     </div>
