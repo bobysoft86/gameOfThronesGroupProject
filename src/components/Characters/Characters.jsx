@@ -15,8 +15,13 @@ export const Characters = () => {
       <div>Characters</div>
     
       {characters.map((character, index) => (
-          <div  onClick={() => console.log(character.id)}>
-          <Link to={`/characters/${character.id}`} > <img className="characterImage" key={index} src={`../../..${character.image}`}alt="sdf"/></Link>
+          <div onClick={() => console.log(character.id)}>
+          <Link to={`/characters/${character.id}`} > <img
+            className="characterImage"
+            key={index}
+            src={`../../..${character.image}`}
+            alt="sdf"
+            /></Link>
 
           <h1>{character.name}</h1>
         </div>
