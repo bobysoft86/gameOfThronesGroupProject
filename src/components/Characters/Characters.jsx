@@ -15,7 +15,7 @@ export const Characters = () => {
       <div>Characters</div>
     
       {characters.map((character, index) => (
-          <div  onClick={() => console.log(character.id)}>
+          <div onClick={() => console.log(character.id)}>
           <Link to={`/characters/${character.id}`} > <img
             className="characterImage"
             key={index}
