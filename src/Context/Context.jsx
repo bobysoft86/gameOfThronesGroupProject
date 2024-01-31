@@ -11,8 +11,8 @@ const[characters, setCharacters]= useState([])
 const[houses, setHouses]= useState([])
 const[character, setCharacter]= useState([])
 const[id,setId]=useState('');
-
-
+const[house, setHouse]= useState({});
+const[idHouse, setIdHouse]=useState('');
 
 
 
@@ -45,11 +45,18 @@ useEffect(() => {
     getCharactersId();
   }, [id]);
 
+  useEffect(() => {
+    const getHousesId = async () => {
 
-
+      const housesApi = await fetch(`${baseUrl}/houses/${idHouse}`);
+      const houseJson = await housesApi.json();
+      setHouse(houseJson);
+    };
+    getHousesId();
+  }, [idHouse]);
 
   return (
-<apiCallContext.Provider value={{characters,character,houses,setId}}>
+<apiCallContext.Provider value={{characters,character,houses,house,setId,setIdHouse, idHouse}}>
       {children}
     </apiCallContext.Provider>  )
 }
