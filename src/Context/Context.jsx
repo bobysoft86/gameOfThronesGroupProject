@@ -21,7 +21,6 @@ useEffect(() => {
       const charactersApi = await fetch(`${baseUrl}/characters`);
       const characterJson = await charactersApi.json();
       setCharacters(characterJson);
-      console.log(characterJson)
     };
     getCharacters();
   }, []);
@@ -30,20 +29,11 @@ useEffect(() => {
       const HousesApi = await fetch(`${baseUrl}/houses`);
       const houseJson = await HousesApi.json();
       setHouses(houseJson);
-      console.log(houseJson)
     };
     getHouses();
   }, []);
 
-  useEffect(() => {
-    const getCharactersId = async () => {
-
-      const charactersApi = await fetch(`${baseUrl}/characters/${id}`);
-      const characterJson = await charactersApi.json();
-      setCharacter(characterJson);
-    };
-    getCharactersId();
-  }, [id]);
+  
 
 
 

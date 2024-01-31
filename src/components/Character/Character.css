@@ -12,3 +12,16 @@
     width: auto;
     height: 25vh;
 }
+
+.informacion{
+    display: flex
+}
+
+.alianzas{
+  display:grid
+}
+
+.palianzas{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
