@@ -1,5 +1,7 @@
 .characterImage{
-    width: 30%;
+    width: 100%;
+    height: 320px;
+
 }
 .gallery{
     display: flex;
@@ -7,8 +9,18 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+    background-color: black;
+    height: 70vh;
+    overflow-y: auto;
+}
+.Character{
+    width:16%;    
+    height: 320px;
+    margin-bottom: 68px;
+}
+.soy_todo{
+    background-color: black;
+    color: white;
+
 }
 
-.informacion{
-    display: flex;
-}

@@ -13,13 +13,10 @@ export const Footer = () => {
     return (
 <>
         <div className="idiomas">
-                {/* <button type="submit" onClick={()=> i18.changeLanguage("es")} disabled={i18n.resolvedLanguage === lng}>español</button> */}
-                <div >
-                <a onClick={() => i18n.changeLanguage("es")}><img className="flags" src="../../../public/spain-flag.webp" alt="spain-flag"></img></a>
-                </div>
-                <div>
-                <a onClick={() => i18n.changeLanguage("en")}><img className="flags" src="../../../public/uk-flag.webp" alt="spain-flag"></img></a>
-                </div>
+                
+                <a onClick={() => i18n.changeLanguage("es")}><img className="flags" src="../../../spain-flag.webp" alt="spain-flag"></img></a>
+              
+                <a onClick={() => i18n.changeLanguage("en")}><img className="flags" src="../../../uk-flag.webp" alt="spain-flag"></img></a>
         </div>
 </>  )
 }
