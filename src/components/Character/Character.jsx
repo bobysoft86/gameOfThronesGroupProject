@@ -20,7 +20,7 @@ export const Character = () => {
 
 
   return (
-    <div>
+
 
     <div className='general'>
       <div className='character'>
