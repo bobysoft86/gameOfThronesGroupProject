@@ -10,7 +10,10 @@ export const ApiProvider = ({children}) => {
 const[characters, setCharacters]= useState([])
 const[houses, setHouses]= useState([])
 const[character, setCharacter]= useState([])
+const[house, sethouse]= useState([])
+
 const[id,setId]=useState('');
+const[idHouse,setIdHouse]=useState('')
 
 
 
@@ -45,11 +48,20 @@ useEffect(() => {
     getCharactersId();
   }, [id]);
 
+  useEffect(() => {
+    const getHouseId = async () => {
 
+      const housesApi = await fetch(`${baseUrl}/houses/${idHouse}`);
+      const houseJson = await housesApi.json();
+      sethouse(houseJson);
+      console.log("soy la api de houseid",houseJson)
+    };
+    getHouseId();
+  }, [idHouse]);
 
-
+  
   return (
-<apiCallContext.Provider value={{characters,character,houses,setId}}>
+<apiCallContext.Provider value={{characters,character,houses,setId,setIdHouse,house}}>
       {children}
     </apiCallContext.Provider>  )
 }
