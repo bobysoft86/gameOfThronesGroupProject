@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ".//House.css";
 import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 const baseUrl = "http://localhost:3001";
 
@@ -28,8 +28,26 @@ export const House = () => {
 
   return (
     <div className="background_container">
+      <div className="nav_houses_container">
+        <div className="nav_houses_container_Left">
+          <Link to={"/houses"}>
+            <img className="flecha" src="../../../images/nav_images/flecha.png" alt="casa"></img>
+          </Link>
+          <Link to={"/houses"} className="volver">
+          <p className="volver">Volver</p>
+          </Link>
+        </div>
+        <div className="nav_houses_container_Right">
+          <div className="home_button">
+            <Link to={"/"}>
+              <img className="casa" src="../../../images/nav_images/casa.png" alt="casa"></img>
+            </Link>
+          </div>
+          <div className="languages"></div>
+          <Nav></Nav>
+        </div>
+      </div>
       <div>
-        <Nav></Nav>
         {loading ? (
           <p>loading</p>
         ) : (
@@ -68,7 +86,6 @@ export const House = () => {
             </div>
           </div>
         )}
-        ;<Footer></Footer>
       </div>
     </div>
   );

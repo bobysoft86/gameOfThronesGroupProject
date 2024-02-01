@@ -1,5 +1,6 @@
 .background_container{
     background-color: black;
+    height: 100vh;
 }
 
 .main_container_house{
@@ -56,4 +57,45 @@
 .second_container p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+}
+
+/* NAV */
+
+.nav_houses_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 30px;
+    background-color: black;
+
+}
+
+.nav_houses_container_Left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav_houses_container_Right{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.casa{
+    width: 22px;
+}
+
+.flecha{
+    width: 22px;
+}
+.volver{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
 }
