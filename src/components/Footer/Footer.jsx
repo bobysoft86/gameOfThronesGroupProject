@@ -13,9 +13,9 @@ export const Footer = () => {
     return (
 <>
 <div className="indice">
-<Link to={"/characters"} className="botones">{t('characters')}</Link>
-<Link to={"/houses"} className="botones">{t('houses')}</Link>
-<Link to={"/chronology"} className="botones">{t('chronology')}</Link>
+    <Link to={"/characters"} className="botones">{t('characters')}</Link>
+    <Link to={"/houses"} className="botones">{t('houses')}</Link>
+    <Link to={"/chronology"} className="botones">{t('chronology')}</Link>
 </div>
 </>  )
 }

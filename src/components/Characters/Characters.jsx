@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { apiCallContext } from "../../Context/Context";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import SimpleBar from "simplebar-react"
 import Nav from "../Nav/Nav";
 import "./Characters.css";
 import Footer from "../Footer/Footer";
@@ -19,6 +20,8 @@ export const Characters = () => {
 
   return (
     <div className="soy_todo">
+      <SimpleBar style={{maxHeight:"70%"}} minSize={20} autoHide={false} >
+
       
             <div>
             <form>
@@ -33,7 +36,7 @@ export const Characters = () => {
         <div className="gallery">
     
       {characters.map((character, index) => (
-          <div className="card" onClick={() => console.log(character.id)}>
+        <div className="card" onClick={() => console.log(character.id)}>
           <Link to={`/characters/${character.id}`} > <img
             className="characterImage"
             key={index}
@@ -46,6 +49,7 @@ export const Characters = () => {
       ))}
     </div>
         <Footer></Footer>
+      </SimpleBar>
 </div>
   );
 };
