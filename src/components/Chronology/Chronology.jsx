@@ -29,7 +29,7 @@ export const Chronology = () => {
           <Nav></Nav>
           <div className="wallpaper">
             <div>
-            <h1 onClick={()=>reverse()}>akjsbdkas</h1>           
+            <h1 onClick={()=>reverse()}>{ !sortedCharacters[0].age?0:sortedCharacters[0].age}</h1>           
             </div>
             {sortedCharacters.map((character, index) => (
               <div  key={index} style={index % 2 === 0 ? { marginLeft: '30%' } : null}>                                              
