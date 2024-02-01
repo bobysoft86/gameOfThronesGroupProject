@@ -2,6 +2,8 @@ import { useContext } from "react"
 import { apiCallContext } from "../../Context/Context"
 import { Link } from "react-router-dom";
 import ".//Houses.css"
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
 
 
 export const Houses = () => {
@@ -11,8 +13,8 @@ export const Houses = () => {
   return (
     <>
     {/* <div>Houses</div> */}
-    
     <div className="houses_container">
+    <Nav></Nav>
       {houses.map((houses,index)=>{
         return(
           <div  key={houses.id} className="card_container">
@@ -21,6 +23,7 @@ export const Houses = () => {
           </div>
         )
       })}
+    <Footer></Footer>
     </div>
     </>
   )

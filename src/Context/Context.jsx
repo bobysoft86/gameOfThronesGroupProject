@@ -15,10 +15,6 @@ const[house, sethouse]= useState([])
 const[id,setId]=useState('');
 const[idHouse,setIdHouse]=useState('')
 
-
-
-
-
 useEffect(() => {
     const getCharacters = async () => {
       const charactersApi = await fetch(`${baseUrl}/characters`);
