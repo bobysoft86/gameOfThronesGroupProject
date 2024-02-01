@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { apiCallContext } from "../../Context/Context";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
@@ -15,19 +15,36 @@ export const Characters = () => {
     en:{nativeName: 'English'},
     es:{nativeName: 'Spanish'}
   }
-  const { characters } = useContext(apiCallContext);
-  console.log("soy characters", characters[0].image);
+  const { characters,setCharacters,setSearch} = useContext(apiCallContext);
+  const [inputValue,setInputValue]= useState("")
+  
+  const capitalize = str =>
+  str.split(' ')
+    .map(([first, ...rest]) => [first.toUpperCase(), ...rest].join(''))
+    .join(' ');
+
+  const capitalizeEachWord = (text) => {
+    const words = text.split(" ");
+    const wordsCapitalized = words.map(word => capitalize(word));
+    return wordsCapitalized.join(" ");
+  }
+
+const handleInputValue =(ev) =>{
+const upper =  capitalizeEachWord(ev.target.value)
+  console.log (upper);
+setSearch(upper)
+}
 
   return (
     <div className="soy_todo">
-      <SimpleBar style={{maxHeight:"70%"}} minSize={20} autoHide={false} >
+      <SimpleBar style={{maxHeight:"70%"}} autoHide={false} >
 
       
             <div>
             <form>
                 <label>
                   Name:
-                  <input type="text" name="name" />
+                  <input type="text" onChange={handleInputValue}  name="name" />
                 </label>
               </form>
             <Nav></Nav>
@@ -36,7 +53,7 @@ export const Characters = () => {
         <div className="gallery">
     
       {characters.map((character, index) => (
-        <div className="card" onClick={() => console.log(character.id)}>
+        <div key={index} className="card" onClick={() => console.log(character.id)}>
           <Link to={`/characters/${character.id}`} > <img
             className="characterImage"
             key={index}

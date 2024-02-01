@@ -12,6 +12,8 @@ const[houses, setHouses]= useState([])
 const[character, setCharacter]= useState([])
 const[house, sethouse]= useState([])
 const[sortedCharacters,setSortedCharacters]=useState([])
+const[search,setSearch]=useState([])
+
 
 const[id,setId]=useState('');
 const[idHouse,setIdHouse]=useState('')
@@ -24,6 +26,16 @@ useEffect(() => {
     };
     getCharacters();
   }, []);
+
+  useEffect(() => {
+    const getshearch = async () => {
+      const charactersApi = await fetch(`${baseUrl}/characters?name=${search}`);
+      const characterJson = await charactersApi.json();
+      setSearch(characterJson);
+    };
+    getshearch();
+  }, [search]);
+
 
 
   useEffect(() => {
@@ -44,9 +56,7 @@ useEffect(() => {
     };
     getHouses();
   }, []);
-
-  
-
+    
   useEffect(() => {
     const getHouseId = async () => {
 
@@ -60,7 +70,7 @@ useEffect(() => {
 
   
   return (
-<apiCallContext.Provider value={{characters,sortedCharacters,setSortedCharacters,character,houses,setId,setIdHouse,house}}>
+<apiCallContext.Provider value={{characters,setSearch,setCharacters,sortedCharacters,setSortedCharacters,character,houses,setId,setIdHouse,house}}>
       {children}
     </apiCallContext.Provider>  )
 }
