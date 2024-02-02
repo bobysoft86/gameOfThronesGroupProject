@@ -76,8 +76,32 @@
     margin-bottom: 10px;
     color: white;
     }
+    img{
+    width: 90px;
+    }
 } 
 
+.nav_character_container_left{
+    margin-left: 80px;
+    flex-direction: row;
+    align-items: center;
+    display:flex;
+    gap: 10px;
+}
 
+.nav_character_container_right{
+    margin-right: 80px;
+    display:flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
 
+.scroll{
+    overflow-y: scroll;
+}
 
+.volver{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+}
