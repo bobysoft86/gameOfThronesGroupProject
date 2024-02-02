@@ -19,6 +19,7 @@ const[id,setId]=useState('');
 const[idHouse,setIdHouse]=useState('')
 
 useEffect(() => {
+  console.log(search);
   const getSearch = async () => {
     const charactersApi = await fetch(`${baseUrl}/characters?name=${search}`);
     const characterJson = await charactersApi.json();

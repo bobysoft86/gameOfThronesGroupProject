@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Character.css";
 import { Link, useParams } from "react-router-dom";
 import Nav from "../Nav/Nav";
+import { apiCallContext } from "../../Context/Context";
 
 const baseUrl = "http://localhost:3001";
 
 export const Character = () => {
+
+  const { houses} = useContext(apiCallContext);
+   console.log("soy houses en character",houses);
   const [character, setCharacter] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -23,6 +27,11 @@ export const Character = () => {
     };
     getCharactersId();
   }, [id]);
+
+  
+const imagenCasa= houses.filter((house)=> house.name === character.house);
+
+
 
   return (
     <div>
@@ -59,10 +68,10 @@ export const Character = () => {
           <div className="informacion">
             <div className="data">
               <h3>House</h3>
+              <img src={`../../..${imagenCasa[0].image}`} alt="" />
             </div>
             <div className="data">
               <h3>Alianzas</h3>
-              {console.log(character.alliances)}
               {character.alliances.map((alliance, index) => (
                 <p className="palianzas" key={index}>
                   {alliance}
