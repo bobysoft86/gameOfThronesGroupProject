@@ -71,7 +71,7 @@ useEffect(() => {
 
   
   return (
-<apiCallContext.Provider value={{characters,setSearch,setCharacters,sortedCharacters,setSortedCharacters,character,houses,setId,setIdHouse,house}}>
+<apiCallContext.Provider value={{characters,setSearch,setCharacters,sortedCharacters,setSortedCharacters,character,houses,setId,setIdHouse,house,setHouses}}>
       {children}
     </apiCallContext.Provider>  )
 }

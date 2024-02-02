@@ -1,10 +1,12 @@
 .indice {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: space-around;
+  width: 100vw;
   height: 14vw;
   flex-direction: row;
   align-items: center;
+  /* margin-left: 50px;
+  margin-right: 50px; */
 }
 
 .botones {

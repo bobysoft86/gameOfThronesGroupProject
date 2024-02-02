@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: black;
+    padding-top: 20px;
 }
 
 .card_container{
@@ -55,7 +56,7 @@
 }
 
 .nav_houses_container_Left{
-    .buscar_input{
+    .input_houses{
         font-family: Arial, Helvetica, sans-serif;
         color: white;
         border: none;
