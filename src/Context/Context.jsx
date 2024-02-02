@@ -19,6 +19,14 @@ const[id,setId]=useState('');
 const[idHouse,setIdHouse]=useState('')
 
 useEffect(() => {
+  const getSearch = async () => {
+    const charactersApi = await fetch(`${baseUrl}/characters?name=${search}`);
+    const characterJson = await charactersApi.json();
+    setCharacters(characterJson);
+  };
+  getSearch();
+}, [search]);
+useEffect(() => {
     const getCharacters = async () => {
       const charactersApi = await fetch(`${baseUrl}/characters`);
       const characterJson = await charactersApi.json();
@@ -27,14 +35,6 @@ useEffect(() => {
     getCharacters();
   }, []);
 
-  useEffect(() => {
-    const getshearch = async () => {
-      const charactersApi = await fetch(`${baseUrl}/characters?name=${search}`);
-      const characterJson = await charactersApi.json();
-      setSearch(characterJson);
-    };
-    getshearch();
-  }, [search]);
 
 
 

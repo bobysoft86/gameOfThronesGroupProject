@@ -16,7 +16,7 @@ export const Characters = () => {
     es:{nativeName: 'Spanish'}
   }
   const { characters,setCharacters,setSearch} = useContext(apiCallContext);
-  const [inputValue,setInputValue]= useState("")
+  const [inputValue,setInputValue]= useState(null)
   
   const capitalize = str =>
   str.split(' ')
