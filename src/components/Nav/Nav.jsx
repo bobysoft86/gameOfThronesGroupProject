@@ -14,9 +14,9 @@ export const Footer = () => {
 <>
         <div className="idiomas">
                 
-                <a onClick={() => i18n.changeLanguage("es")}><img className="flags" src="../../../spain-flag.webp" alt="spain-flag"></img></a>
+                <a onClick={() => i18n.changeLanguage("es")}><img className="spain_flag" src="../../../spain-flag.webp" alt="spain-flag"></img></a>
               
-                <a onClick={() => i18n.changeLanguage("en")}><img className="flags" src="../../../uk-flag.webp" alt="spain-flag"></img></a>
+                <a onClick={() => i18n.changeLanguage("en")}><img className="uk_flag" src="../../../uk-flag.webp" alt="spain-flag"></img></a>
         </div>
 </>  )
 }

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { apiCallContext } from "../../Context/Context";
 import { Link } from "react-router-dom";
 import ".//Houses.css";
@@ -7,9 +7,20 @@ import Footer from "../Footer/Footer";
 import SimpleBar from "simplebar-react";
 
 export const Houses = () => {
-  const { houses } = useContext(apiCallContext);
+  const { houses, setHouses } = useContext(apiCallContext);
+const [copyArray, setCopyArray] = useState([]); 
   // console.log("soy houses",houses)
-  
+  // console.log("prueba filter")
+
+useEffect(()=> {
+  setCopyArray (houses)
+} ,[houses])
+const handleInputValue = (event) => {
+  let search = copyArray.filter((house) => house.name.includes(event.target.value))
+  console.log("prueba filter",search)
+  setHouses (search) 
+  useEffect
+}
 
   return (
     <>
@@ -18,7 +29,12 @@ export const Houses = () => {
       <div className="nav_houses_container">
         <div className="nav_houses_container_Left">
         <img src="../../../images/nav_images/lupa.png" className="lupa"></img>
-          <input type="text" placeholder="Buscar" className="buscar_input"></input>
+        <form>
+                <label>
+                  <input type="text" onChange={handleInputValue}  name="name" className="input_houses" placeholder="Buscar"/>
+                  {/* <input type="text"name="name" className="input_houses" placeholder="Buscar"/> */}
+                </label>
+              </form>
         </div>
         <div className="nav_houses_container_Right">
           <div className="home_button">
@@ -30,8 +46,8 @@ export const Houses = () => {
           <Nav></Nav>
         </div>
       </div>
-      <SimpleBar style={{ MaxHeight: "70vh" }} minSize={20} autoHide={false}>
         <div className="houses_container">
+      {/* <SimpleBar style={{ MaxHeight: "70vh" }} minSize={20} autoHide={false}> */}
           {houses.map((houses, index) => {
             return (
               <div key={houses.id} className="card_container">
@@ -42,9 +58,9 @@ export const Houses = () => {
               </div>
             );
           })}
+      {/* </SimpleBar> */}
           <Footer></Footer>
         </div>
-      </SimpleBar>
       </div>
     </>
   );

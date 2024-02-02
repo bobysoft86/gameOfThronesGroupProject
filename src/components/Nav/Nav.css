@@ -8,6 +8,15 @@
     align-items: center;
   
 }
-.flags{
+/* .flags{
+    height: 20px;
+} */
+
+.spain_flag{
+    height: 27px;
+    margin-right: 16px;
+}
+
+.uk_flag{
     height: 20px;
 }
