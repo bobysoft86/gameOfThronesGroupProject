@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Character.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Nav from "../Nav/Nav";
 
 const baseUrl = "http://localhost:3001";
 
@@ -9,24 +10,19 @@ export const Character = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-     
-      const getCharactersId = async () => {
-        try {
-          const charactersApi = await fetch(`${baseUrl}/characters/${id}`);
+    const getCharactersId = async () => {
+      try {
+        const charactersApi = await fetch(`${baseUrl}/characters/${id}`);
         const characterJson = await charactersApi.json();
         setCharacter(characterJson);
-        } catch (error) {
-          console.log(error);
-        }
-        finally {
-          setLoading(false);
-        }
-        
-      };
-      getCharactersId();
-  }
-  , [id]);
-
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getCharactersId();
+  }, [id]);
 
   return (
     <div>
@@ -34,20 +30,37 @@ export const Character = () => {
         <p>loading</p>
       ) : (
         <div className="general">
-          {console.log(character)}
-          <div className="character">
-            <img
-              className="imagen"
-              src={`../../..${character.image}`}
-              alt={character.name}
-            />
-            <p>{character.name}</p>
+
+        <div className="nav_character_container">
+          <div className="nav_character_container_left">
+            <Link to = {"/characters"}><img className="flecha" src="../../../images/nav_images/flecha.png" alt="spain-flag"></img></Link>
+            <Link to = {"/characters"} className="volver"><p>Volver</p></Link>
+          </div>
+          <div className="nav_character_container_right">
+            <div className="home">
+            <Link to = {"/"}><img className="casa" src="../../../images/nav_images/casa.png" alt="spain-flag"></img></Link>
+            </div>
+            <div className="languages">
+            <Nav />
+            </div>
+          </div>
+        </div>
+        
+
+            <div className="principal">
+              <div className="character">
+              <img
+                className="imagen"
+                src={`../../..${character.image}`}
+                alt={character.name}/>
+              <h3>{character.name}</h3>
+            </div>
           </div>
           <div className="informacion">
-            <div className="casa">
+            <div className="data">
               <h3>House</h3>
             </div>
-            <div className="alianzas">
+            <div className="data">
               <h3>Alianzas</h3>
               {console.log(character.alliances)}
               {character.alliances.map((alliance, index) => (
@@ -56,22 +69,39 @@ export const Character = () => {
                 </p>
               ))}
             </div>
-            <div className="apariciones">
+            <div className="data">
               <h3>Apariciones</h3>
-              <p>{character.episodes}</p>
+              {character.episodes.map((episode, index) => (
+                <p className="papariciones" key={index}>
+                  {episode}
+                </p>
+              ))}
             </div>
-            {}
-            <div className="padres">
+            <div className="data">
               <h3>Padres</h3>
-              <p>{character.parents}</p>
+              {character.parents.map((parent, index) => (
+                <p className="papadres" key={index}>
+                  {parent}
+                </p>
+              ))}
             </div>
-            <div className="hijos">
+            <div className="data">
               <h3>Descendientes</h3>
-              <p>{character.siblings}</p>
+              {character.siblings.map((sibling, index) => (
+                <p className="pahijos" key={index}>
+                  {sibling}
+                </p>
+              ))}
             </div>
-            <div className="titulos">
+            <div className="data">
               <h3>Titulos</h3>
-              <p>{character.titles}</p>
+              <div className="scroll">
+              {character.titles.map((title, index) => (
+                <p className="patitulos" key={index}>
+                  {title}
+                </p>
+              ))}
+              </div>
             </div>
           </div>
         </div>
